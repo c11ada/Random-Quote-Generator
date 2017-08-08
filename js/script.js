@@ -45,6 +45,7 @@ var quotes = [
         year:"1971"
     }
 ];
+//variable to store used quotes
 var quotesUsed = [];
 
 var colorsArr = [
@@ -66,15 +67,21 @@ function getRandomQuote() {
     // get random number with quotes length as upper limit
     var quote;
 
+    // check to see if quotes is not empty
     if(quotes.length > 0)
     {
+        //splice the random quote and push is into the used quote variable
+        // this will leave you with a quotes array with one less
         quote = quotes.splice(createRandomNumber(quotes.length),1);
         quotesUsed.push(quote[0]);
     }
     else
     {
+        // all items are now in used quotes - create a copy to quotes
         quotes = quotesUsed;
+        //clear quotes used
         quotesUsed = [];
+        //splice and place in quotes used again.
         quote = quotes.splice(createRandomNumber(quotes.length),1);
         quotesUsed.push(quote[0]);
     }
